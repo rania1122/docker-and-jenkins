@@ -1,43 +1,10 @@
-pipeline {
-    agent any
+node {
+    checkout scm
 
-    stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
-        }
-        
-        stage('Build') {
-            steps {
-                echo 'building'
-            }
-        }
-        
-        
-        stage('Deploy') {
-            steps {
-                echo 'deploying'
-            }
-        }
-        
-        
-        stage('Test') {
-            steps {
-                echo 'testing'
-            }
-        }
-        
-        
-        stage('Release') {
-            steps {
-                echo 'realesing'
-            }
-        }
-        
-        
-        
-        
-    }
+    docker.withRegistry("https://registry.hub.docker.com", 'dockerhub'){
     
+        def customImage = docker.build("rania1122/dockerwebapp")
+        
+        customImage.push()
+    }  
 }
