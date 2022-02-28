@@ -11,7 +11,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t rania1122/nodeApp:latest .'
+				sh 'docker build -t rania1122/nextjs:latest .'
 			}
 		}
 
@@ -25,7 +25,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push rania1122/nodeApp:latest'
+				sh 'docker push rania1122/nextjs:latest'
 			}
 		}
 	}
