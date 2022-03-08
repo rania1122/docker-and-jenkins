@@ -11,7 +11,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build --tag rania1122/dp-alpine:latest .'
+				sh 'docker build --tag rania1122/docker-and-jenkins:latest .'
 			}
 		}
 
@@ -25,7 +25,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push rania1122/dp-alpine:latest'
+				sh 'docker push rania1122/docker-and-jenkins:latest'
 			}
 		}
 	}
