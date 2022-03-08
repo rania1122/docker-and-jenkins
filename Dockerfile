@@ -1,8 +1,8 @@
 FROM node:alpine
 
-WORKDIR /next
+WORKDIR /nextjs
 
-COPY . /next/
+COPY . /nextjs/
 
 RUN npm install
 
