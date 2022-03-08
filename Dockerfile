@@ -1,1 +1,11 @@
-FROM alpine:3.13.5
+FROM node:alpine
+
+WORKDIR /next
+
+COPY . /next/
+
+RUN npm install
+
+RUN npm run build
+EXPOSE 3000
+CMD npm run start
