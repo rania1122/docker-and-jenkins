@@ -1,9 +1,6 @@
 pipeline{
 
 	agent {label 'linux'}
-	options{
-	buildDiscarder(logRotator(numTokeepStr: '5'))
-	}
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('rania-dockerhub')
