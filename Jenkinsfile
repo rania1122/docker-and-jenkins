@@ -1,6 +1,6 @@
 pipeline{
 
-	agent {label 'linux'}
+	agent Any
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('rania-dockerhub')
