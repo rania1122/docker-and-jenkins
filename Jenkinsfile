@@ -1,9 +1,12 @@
 pipeline{
 
-	agent any
+	agent {label 'linux'}
+	options{
+	buildDiscarder(logRotator(numTokeepStr: '5'))
+	}
 
 	environment {
-		DOCKERHUB_CREDENTIALS=credentials('Dockerhub-creds-rania')
+		DOCKERHUB_CREDENTIALS=credentials('rania-dockerhub')
 	}
 
 	stages {
@@ -11,7 +14,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t rania1122/nextjs:latest .'
+				sh 'docker build -t rania1122/dp-alpine:latest .'
 			}
 		}
 
@@ -25,7 +28,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push rania1122/nextjs:latest'
+				sh 'docker push rania1122/dp-alpine:latest'
 			}
 		}
 	}
